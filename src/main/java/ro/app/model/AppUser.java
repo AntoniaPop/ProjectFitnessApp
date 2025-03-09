@@ -10,7 +10,7 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Unique identifier for the user (Changed to Long for typical ID handling)
+    private Long id; // Unique identifier for the user
 
     private String username; // Username for login
     private String firstName; // User's first name
