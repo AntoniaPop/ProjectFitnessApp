@@ -1,4 +1,6 @@
-package main.java.ro.app.model;
+package ro.app.model;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,7 +20,12 @@ public class Workout {
     private LocalDateTime workoutDateTime; // Date and time when the workout was performed
 
     @ManyToMany(mappedBy = "workout") // This maps the UserWorkout relationship
+    @JsonBackReference // Prevent recursion by excluding the 'user' field when serializing Diet
     private List<UserWorkout> userWorkouts; // Lista de utilizatori care au efectuat acest antrenament
+
+    // Constructor
+    public Workout() {
+    }
 
     // Constructor
     public Workout(Long id, String name, WorkoutCategory category, String description, int durationInMinutes,

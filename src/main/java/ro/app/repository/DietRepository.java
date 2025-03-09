@@ -1,6 +1,6 @@
-package main.java.ro.app.repository;
+package ro.app.repository;
 
-import main.java.ro.app.model.Diet;
+import ro.app.model.Diet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

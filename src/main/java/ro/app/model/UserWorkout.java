@@ -1,4 +1,4 @@
-package main.java.ro.app.model;
+package ro.app.model;
 
 import java.util.Date;
 
@@ -13,7 +13,7 @@ public class UserWorkout {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private AppUser user;
 
     @ManyToOne
     @JoinColumn(name = "workout_id")
@@ -22,7 +22,7 @@ public class UserWorkout {
     private String status;
 
     // Constructor, getters, setters
-    public UserWorkout(User user, Workout workout, Date startDate, String status) {
+    public UserWorkout(AppUser user, Workout workout, Date startDate, String status) {
         this.user = user;
         this.workout = workout;
         this.startDate = startDate;
@@ -41,11 +41,11 @@ public class UserWorkout {
         this.id = id;
     }
 
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
 

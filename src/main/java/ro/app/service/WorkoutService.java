@@ -1,9 +1,11 @@
-package main.java.ro.app.service;
+package ro.app.service;
 
-import main.java.ro.app.model.Workout;
-import main.java.ro.app.repository.WorkoutRepository;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ro.app.model.Workout;
+import ro.app.repository.WorkoutRepository;
 
 import java.util.List;
 import java.util.Optional;

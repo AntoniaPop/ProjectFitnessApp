@@ -1,4 +1,4 @@
-package main.java.ro.app;
+package ro.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

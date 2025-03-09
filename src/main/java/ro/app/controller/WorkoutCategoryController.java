@@ -1,7 +1,7 @@
-package main.java.ro.app.controller;
+package ro.app.controller;
 
-import main.java.ro.app.model.WorkoutCategory;
-import main.java.ro.app.service.WorkoutCategoryService;
+import ro.app.model.WorkoutCategory;
+import ro.app.service.WorkoutCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

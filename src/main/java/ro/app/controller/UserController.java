@@ -1,7 +1,7 @@
-package main.java.ro.app.controller;
+package ro.app.controller;
 
-import main.java.ro.app.model.User;
-import main.java.ro.app.service.UserService;
+import ro.app.model.AppUser;
+import ro.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,29 +16,29 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    // Get all users
+    @GetMapping
+    public List<AppUser> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    // Get a user by ID
+    @GetMapping("/{id}")
+    public Optional<AppUser> getUser(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
     // Create a new user
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@RequestBody User user) {
+    public AppUser createUser(@RequestBody AppUser user) {
         return userService.createUser(user);
     }
 
     // Update an existing user
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public AppUser updateUser(@PathVariable Long id, @RequestBody AppUser user) {
         return userService.updateUser(id, user);
-    }
-
-    // Get a user by ID
-    @GetMapping("/{id}")
-    public Optional<User> getUser(@PathVariable Long id) {
-        return userService.getUserById(id);
-    }
-
-    // Get all users
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
     }
 
     // Delete a user by ID

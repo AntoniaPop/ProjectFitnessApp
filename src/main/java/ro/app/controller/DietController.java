@@ -1,7 +1,7 @@
-package main.java.ro.app.controller;
+package ro.app.controller;
 
-import main.java.ro.app.model.Diet;
-import main.java.ro.app.service.DietService;
+import ro.app.model.Diet;
+import ro.app.service.DietService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

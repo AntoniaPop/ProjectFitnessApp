@@ -1,6 +1,6 @@
-package main.java.ro.app.service;
+package ro.app.service;
 
-import main.java.ro.app.model.WorkoutCategory;
+import ro.app.model.WorkoutCategory;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

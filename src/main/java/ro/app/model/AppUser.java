@@ -1,10 +1,12 @@
-package main.java.ro.app.model;
+package ro.app.model;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class User {
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,15 +23,16 @@ public class User {
 
     // One-to-many relationship: User can have many user workouts
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference // Prevent recursion by excluding the 'user' field when serializing Diet
     private List<UserWorkout> userWorkouts;
 
     // Default constructor (required by JPA)
-    public User() {
+    public AppUser() {
     }
 
     // Constructor with parameters (you can add userWorkouts here as well)
-    public User(String username, String firstName, String lastName, String email, List<Diet> diets,
-            List<UserWorkout> userWorkouts) {
+    public AppUser(String username, String firstName, String lastName, String email, List<Diet> diets,
+                   List<UserWorkout> userWorkouts) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;

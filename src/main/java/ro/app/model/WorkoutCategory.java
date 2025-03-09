@@ -1,4 +1,4 @@
-package main.java.ro.app.model;
+package ro.app.model;
 
 public enum WorkoutCategory {
     STRENGTH, // e.g., weightlifting

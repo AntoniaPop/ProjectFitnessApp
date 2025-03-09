@@ -1,11 +1,11 @@
-package main.java.ro.app.service;
+package ro.app.service;
 
-import main.java.ro.app.model.User;
-import main.java.ro.app.model.Workout;
-import main.java.ro.app.model.UserWorkout;
-import main.java.ro.app.repository.UserRepository;
-import main.java.ro.app.repository.UserWorkoutRepository;
-import main.java.ro.app.repository.WorkoutRepository;
+import ro.app.model.AppUser;
+import ro.app.model.Workout;
+import ro.app.model.UserWorkout;
+import ro.app.repository.UserRepository;
+import ro.app.repository.UserWorkoutRepository;
+import ro.app.repository.WorkoutRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class UserWorkoutService {
     public UserWorkout addWorkoutToUser(Long userId, Long workoutId, Date date, String workoutStatus) {
         // Make sure userId and workoutId are Long, and we fetch User and Workout
         // correctly
-        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        AppUser user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
 
         Workout workout = workoutRepository.findById(workoutId)
                 .orElseThrow(() -> new RuntimeException("Workout not found"));

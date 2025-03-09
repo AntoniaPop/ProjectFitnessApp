@@ -1,6 +1,6 @@
-package main.java.ro.app.repository;
+package ro.app.repository;
 
-import main.java.ro.app.model.UserWorkout;
+import ro.app.model.UserWorkout;
 
 import java.util.List;
 

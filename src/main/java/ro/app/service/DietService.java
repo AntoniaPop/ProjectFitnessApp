@@ -1,7 +1,7 @@
-package main.java.ro.app.service;
+package ro.app.service;
 
-import main.java.ro.app.model.Diet;
-import main.java.ro.app.repository.DietRepository;
+import ro.app.model.Diet;
+import ro.app.repository.DietRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

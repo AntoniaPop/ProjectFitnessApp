@@ -1,4 +1,6 @@
-package main.java.ro.app.model;
+package ro.app.model;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -14,14 +16,16 @@ public class Diet {
 
     @ManyToOne // Many Diets can belong to one User
     @JoinColumn(name = "user_id") // This specifies the foreign key column for the User in the Diet table
-    private User user; // User who is following the diet
+    @JsonBackReference // Prevent recursion by excluding the 'user' field when serializing Diet
+
+    private AppUser user; // User who is following the diet
 
     // Default constructor (required by JPA)
     public Diet() {
     }
 
     // Constructor with fields
-    public Diet(String name, String description, User user) {
+    public Diet(String name, String description, AppUser user) {
         this.name = name;
         this.description = description;
         this.user = user;
@@ -52,17 +56,16 @@ public class Diet {
         this.description = description;
     }
 
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
 
     @Override
     public String toString() {
-        return "Diet{" + "id=" + id + ", name='" + name + '\'' + ", description='" + description + '\'' + ", user="
-                + user + '}';
+        return "Diet{" + "id=" + id + ", name='" + name + '\'' + ", description='" + description +  '}';
     }
 }

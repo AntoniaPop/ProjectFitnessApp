@@ -1,11 +1,12 @@
-package main.java.ro.app.controller;
+package ro.app.controller;
 
-import main.java.ro.app.model.UserWorkout;
-import main.java.ro.app.service.UserWorkoutService;
+import ro.app.model.UserWorkout;
+import ro.app.service.UserWorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -52,6 +53,8 @@ public class UserWorkoutController {
     // Optional: Update outdated user workouts based on the start date
     @PutMapping("/updateOutdated")
     public void updateOutdatedUserWorkouts() {
-        userWorkoutService.updateOutDatedUserWorkouts();
+        List<UserWorkout> userWorkouts = new ArrayList<>();
+        userWorkouts.add(new UserWorkout());
+        userWorkoutService.updateOutDatedUserWorkouts(userWorkouts);
     }
 }

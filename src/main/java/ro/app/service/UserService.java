@@ -1,7 +1,7 @@
-package main.java.ro.app.service;
+package ro.app.service;
 
-import main.java.ro.app.model.User;
-import main.java.ro.app.repository.UserRepository;
+import ro.app.model.AppUser;
+import ro.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,28 +15,28 @@ public class UserService {
     private UserRepository userRepository;
 
     // Create a new user
-    public User createUser(User user) {
+    public AppUser createUser(AppUser user) {
         return userRepository.save(user);
     }
 
     // Get user by ID
-    public Optional<User> getUserById(Long id) {
+    public Optional<AppUser> getUserById(Long id) {
         return userRepository.findById(id);
     }
 
     // Get all users
-    public List<User> getAllUsers() {
+    public List<AppUser> getAllUsers() {
         return userRepository.findAll();
     }
 
     // Get user by username
-    public User getUserByUsername(String username) {
+    public AppUser getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
-    public User updateUser(Long id, User user) {
+    public AppUser updateUser(Long id, AppUser user) {
         // Fetch the existing user using findById(), which returns an Optional<User>
-        User existingUser = userRepository.findById(id)
+        AppUser existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + id));
 
         // Ensure that the ID is maintained when updating the user
