@@ -20,8 +20,6 @@ public class DietService {
     }
 
     // Get a diet by ID
-    // JpaRepository provides several default methods, including findById() using
-    // Optional
     public Optional<Diet> getDietById(Long id) {
         return dietRepository.findById(id);
     }
@@ -38,14 +36,11 @@ public class DietService {
 
     // Update an existing diet
     public Diet updateDiet(Long id, Diet diet) {
-        // Fetch the existing diet using findById(), which returns an Optional<Diet>
         Diet existingDiet = dietRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Diet not found with ID: " + id));
 
-        // Ensure that the ID is maintained when updating the diet
         diet.setId(existingDiet.getId());
 
-        // Save and return the updated diet
         return dietRepository.save(diet);
     }
 

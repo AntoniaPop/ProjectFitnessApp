@@ -1,9 +1,9 @@
 package ro.app.model;
 
 public enum WorkoutCategory {
-    STRENGTH, // e.g., weightlifting
-    CARDIO, // e.g., running, cycling
-    FLEXIBILITY, // e.g., yoga, stretching
-    BALANCE, // e.g., stability exercises
-    ENDURANCE // e.g., long-distance running, swimming
+    STRENGTH, // weightlifting
+    CARDIO, // running, cycling
+    FLEXIBILITY, // yoga, stretching
+    BALANCE, // stability exercises
+    ENDURANCE // long-distance running, swimming
 }

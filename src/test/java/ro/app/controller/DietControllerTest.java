@@ -3,7 +3,6 @@ package ro.app.controller;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -18,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.http.MediaType;
 
 import ro.app.App;
-import ro.app.controller.DietController;
 import ro.app.model.Diet;
 import ro.app.service.DietService;
 import java.util.Optional;
@@ -36,7 +34,7 @@ public class DietControllerTest {
     // Before each test, we set up the mock data
     @BeforeEach
     public void setUp() {
-        // This is where the mock setup will happen, but @MockBean already initializes it for you
+
     }
 
     @Test

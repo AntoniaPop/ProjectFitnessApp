@@ -35,14 +35,11 @@ public class UserService {
     }
 
     public AppUser updateUser(Long id, AppUser user) {
-        // Fetch the existing user using findById(), which returns an Optional<User>
         AppUser existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + id));
 
-        // Ensure that the ID is maintained when updating the user
         user.setId(existingUser.getId());
 
-        // Save and return the updated user
         return userRepository.save(user);
     }
 

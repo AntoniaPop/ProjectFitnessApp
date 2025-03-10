@@ -27,8 +27,6 @@ public class UserWorkoutService {
 
     // Associate a workout with a user
     public UserWorkout addWorkoutToUser(Long userId, Long workoutId, Date date, String workoutStatus) {
-        // Make sure userId and workoutId are Long, and we fetch User and Workout
-        // correctly
         AppUser user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
 
         Workout workout = workoutRepository.findById(workoutId)
@@ -62,9 +60,7 @@ public class UserWorkoutService {
 
     public void updateOutDatedUserWorkouts(List<UserWorkout> userWorkouts) {
         for (UserWorkout userWorkout : userWorkouts) {
-            // Check if the workout is old or needs modification
             if (userWorkout.getStartDate().before(new Date())) {
-                // Update the workout to mark it as outdated
                 userWorkout.setStatus("Outdated");
                 userWorkoutRepository.save(userWorkout);
             }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserWorkoutRepository extends JpaRepository<UserWorkout, Long> {
-    // Custom query methods can be added here if needed, e.g.,
 
     List<UserWorkout> findByWorkoutId(Long workoutId);
 
