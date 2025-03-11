@@ -38,7 +38,7 @@ public class UserWorkoutController {
     }
 
     // Get all user workouts
-    @GetMapping
+    @GetMapping("/userworkouts")
     public List<UserWorkout> getAllUserWorkouts() {
         return userWorkoutService.getAllUserWorkouts();
     }
