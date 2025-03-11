@@ -21,7 +21,6 @@ public class UserWorkout {
     private Date startDate; // Date when the user started the workout
     private String status;
 
-    // Constructor, getters, setters
     public UserWorkout(AppUser user, Workout workout, Date startDate, String status) {
         this.user = user;
         this.workout = workout;
@@ -29,7 +28,6 @@ public class UserWorkout {
         this.status = status;
     }
 
-    // Default constructor for JPA
     public UserWorkout() {
     }
 

@@ -12,10 +12,10 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // Unique identifier for the user
 
-    private String username; // Username for login
-    private String firstName; // User's first name
-    private String lastName; // User's last name
-    private String email; // User's email address
+    private String username;
+    private String firstName;
+    private String lastName;
+    private String email;
 
     // One-to-many relationship: User can have many diets
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -23,14 +23,12 @@ public class AppUser {
 
     // One-to-many relationship: User can have many user workouts
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonBackReference // Prevent recursion by excluding the 'user' field when serializing Diet
+    @JsonBackReference
     private List<UserWorkout> userWorkouts;
 
-    // Default constructor (required by JPA)
     public AppUser() {
     }
 
-    // Constructor with parameters (you can add userWorkouts here as well)
     public AppUser(String username, String firstName, String lastName, String email, List<Diet> diets,
                    List<UserWorkout> userWorkouts) {
         this.username = username;
@@ -41,7 +39,7 @@ public class AppUser {
         this.userWorkouts = userWorkouts;
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

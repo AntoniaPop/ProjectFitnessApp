@@ -11,23 +11,21 @@ import javax.persistence.*;
 public class Workout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Unique identifier for the workout
-    private String name; // Name of the workout (e.g., "Push-ups", "Running")
-    private WorkoutCategory category; // The category of the workout (e.g., STRENGTH, CARDIO)
-    private String description; // A brief description of the workout
-    private int durationInMinutes; // Duration of the workout in minutes
-    private int caloriesBurned; // Calories burned during the workout
+    private Long id;
+    private String name;
+    private WorkoutCategory category;
+    private String description;
+    private int durationInMinutes;
+    private int caloriesBurned;
     private LocalDateTime workoutDateTime; // Date and time when the workout was performed
 
     @ManyToMany(mappedBy = "workout") // This maps the UserWorkout relationship
-    @JsonBackReference // Prevent recursion by excluding the 'user' field when serializing Diet
+    @JsonBackReference
     private List<UserWorkout> userWorkouts; // Lista de utilizatori care au efectuat acest antrenament
 
-    // Constructor
     public Workout() {
     }
 
-    // Constructor
     public Workout(Long id, String name, WorkoutCategory category, String description, int durationInMinutes,
             int caloriesBurned, LocalDateTime workoutDateTime) {
         this.id = id;
