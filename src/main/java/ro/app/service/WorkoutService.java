@@ -39,8 +39,6 @@ public class WorkoutService {
 
     // Update an existing workout
     public Workout updateWorkout(Long id, Workout workout) {
-        // Fetch the existing workout using findById(), which returns an
-        // Optional<Workout>
         Workout existingWorkout = workoutRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Workout not found with ID: " + id));
 
